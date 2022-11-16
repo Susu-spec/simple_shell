@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * get_env - gets an environment variable
+ * _getenviron - gets an environment variable
  * @name: environment variable to get
  * Return: pointer to environment variable, NULL if none exists
  */
 
-char *_get_env(const char *name)
+char *_getenviron(const char *name)
 {
 	char **environ_copy;
 	char *variable, *value, *path;
@@ -27,9 +27,8 @@ char *_get_env(const char *name)
 				errors(4);
 				exit(EXIT_FAILURE);
 			}
-			
 			path_length = _strlen(value);
-			path= malloc(sizeof(char) * path_length + 1);
+			path = malloc(sizeof(char) * path_length + 1);
 			if (path == NULL)
 			{
 				errors(3);
