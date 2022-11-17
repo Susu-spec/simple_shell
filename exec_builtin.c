@@ -6,7 +6,7 @@
  * Return: tokens
  */
 
-int exec_builtin(char **tokens)
+int builtin_execute(char **tokens)
 {
 	int status;
 	unsigned int length;

@@ -51,3 +51,43 @@ char *_getenv(const char *name)
 	}
 	return (NULL);
 }
+
+/**
+ * copy_env - copies environment variable
+ * @environ_copy: pointer to copy of environment variable
+ * @environ_length: length of environment variable
+ * Return: double pointer to copy of environment varable
+ */
+char **copy_env(char **environ_copy, unsigned int environ_length)
+{
+	char *variable;
+	unsigned int variable_length;
+	unsigned int i;
+
+	environ_copy = malloc(sizeof(char **) * (environ_length));
+	if (environ_copy == NULL)
+	{
+		errors(3);
+		return (NULL);
+	}
+
+	i = 0;
+	while (i < environ_length)
+	{
+		variable = environ[i];
+		variable_length = _strlen(variable);
+
+		environ_copy[i] = malloc(sizeof(char) * variable_length + 1);
+		if (environ_copy[i] == NULL)
+		{
+			errors(3);
+			return (NULL);
+		}
+		_strcpy(environ_copy[i], environ[i]);
+		i++;
+	}
+
+	return (environ_copy);
+}
+
+
