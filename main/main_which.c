@@ -8,6 +8,7 @@ int main(void)
 {
 	char *full_path = NULL;
 
+	path = _getenv("PATH");
 	full_path = _which("ls", full_path);
 
 	printf("Path: %s\n", full_path);

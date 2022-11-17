@@ -1,20 +1,29 @@
 #include "shell.h"
 
 /**
- * _getenviron - gets an environment variable
+ * _getenv - gets an environment variable
  * @name: environment variable to get
  * Return: pointer to environment variable, NULL if none exists
  */
 
-char *_getenviron(const char *name)
+char *_getenv(const char *name)
 {
 	char **environ_copy;
 	char *variable, *value, *path;
 	int compare;
 	unsigned int path_length, environ_length, length, i;
 
+
+	length = _strlen((char *)name);
+	i = 0;
 	environ_length = 0;
 	while (environ[environ_length] != NULL)
+	{
+		environ_length++;
+	}
+	environ_copy = NULL;
+	environ_copy = copy_env(environ_copy, environ_length);
+	while (environ_copy[i] != NULL)
 	{
 		variable = environ_copy[i];
 		compare = _strcmp((char *)name, variable, length);
@@ -22,7 +31,7 @@ char *_getenviron(const char *name)
 		{
 			value = strtok(variable, "=");
 			value = strtok(NULL, "\n ");
-			if (value == '\0')
+			if (*value == '\0')
 			{
 				errors(4);
 				exit(EXIT_FAILURE);

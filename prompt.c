@@ -20,7 +20,7 @@ void prompt(int fd, struct stat buf)
  */
 void _puts(char *str)
 {
-	unsigned iint length;
+	unsigned int length;
 
 	length = _strlen(str);
 

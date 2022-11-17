@@ -24,7 +24,7 @@ int main(void)
 		tokens = tokenizer(line);
 		if (tokens[0] == NULL)
 			continue;
-		builtin_satus = exec_builtin(tokens);
+		builtin_status = builtin_execute(tokens);
 		if (builtin_status == 0 || builtin_status == -1)
 		{
 			free(tokens);
@@ -35,8 +35,8 @@ int main(void)
 		if (builtin_status == -1)
 			_exit(EXIT_SUCCESS);
 		flag = 0;
-		path = _getenviron("PATH");
-		fullpath = search(tokens[0], fullpath, path);
+		path = _getenv("PATH");
+		fullpath = _which(tokens[0], fullpath, path);
 		if (fullpath == NULL)
 			fullpath = tokens[0];
 		else

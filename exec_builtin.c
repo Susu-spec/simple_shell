@@ -13,7 +13,7 @@ int exec_builtin(char **tokens)
 	unsigned int num;
 	unsigned int i;
 
-	built_t builtin[] = {
+	built_s builtin[] = {
 		{"exit", shell_exit},
 		{"env", shell_env},
 		{NULL, NULL}
@@ -41,7 +41,7 @@ int exec_builtin(char **tokens)
  * Return: number of builtins
  */
 
-int shell_num_builtins(built_t builtin[])
+int shell_num_builtins(built_s builtin[])
 {
 	unsigned int i;
 

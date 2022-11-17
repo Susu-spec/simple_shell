@@ -19,7 +19,7 @@ char **tokenizer(char *str)
 		exit(EXIT_FAILURE);
 	}
 
-	tokens = strtok(str, "\n\t\r ");
+	token = strtok(str, "\n\t\r ");
 
 	i = 0;
 	while (token != NULL)
