@@ -1,13 +1,12 @@
 #include "shell.h"
 
 /**
- * _strcmp - compares two strings to check if equal
- * @name: user input
+ * _strcmp - compares two strings to find out if they are exactly the same
+ * @name: name supplied by user to search for
  * @variable: variable to compare against
  * @length: length of name
- * Return: 1 if strings are equal, -1 if not
+ * Return: 1 if strings are equal, -1 if they are not
  */
-
 int _strcmp(char *name, char *variable, unsigned int length)
 {
 	unsigned int var_length;
@@ -28,13 +27,13 @@ int _strcmp(char *name, char *variable, unsigned int length)
 }
 
 /**
- * _strncmp - compares..
- * @length: number of bytes
- * @name: of user input
- * @variable: to variable
- * Return: 1 if equal, -1 if not
+ * _strncmp - compares two strings
+ * up to given length are the same
+ * @name: name supplied by user to search for
+ * @variable: variable to compare against
+ * @length: length to compare up to
+ * Return: 1 if strings are equal, -1 if they are not
  */
-
 int _strncmp(char *name, char *variable, unsigned int length)
 {
 	unsigned int i;
@@ -50,12 +49,11 @@ int _strncmp(char *name, char *variable, unsigned int length)
 }
 
 /**
- * _strcpy - copies string pointed to by src to dest buffer
+ * *_strcpy - copies string pointed to by src to the buffer pointed to dest
  * @dest: string destination
  * @src: string source
  * Return: the pointer to dest
  */
-
 char *_strcpy(char *dest, char *src)
 {
 	int i;
@@ -63,20 +61,18 @@ char *_strcpy(char *dest, char *src)
 
 	for (i = 0; i <= j; i++)
 		dest[i] = src[i];
+
 	return (dest);
 }
 
 /**
- * _strlen - calculates length of string, excludes '\0'
+ * _strlen - returns the length of a string
  * @s: string to be evaluated
  * Return: length of string
  */
-
 int _strlen(char *s)
 {
-	int i;
-
-	i = 0;
+	int i = 0;
 
 	while (s[i] != '\0')
 		i++;
