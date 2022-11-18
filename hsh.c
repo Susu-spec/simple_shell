@@ -2,7 +2,7 @@
 
 /**
  * main - entry point
- * Return 0 indicates success
+ * Return: 0 indicates success
  */
 
 int main(void)
@@ -12,7 +12,7 @@ int main(void)
 	int flag, builtin_status, child_status;
 	struct stat buf;
 
-	while(TRUE)
+	while (TRUE)
 	{
 		prompt(STDIN_FILENO, buf);
 		line = _getline(stdin);

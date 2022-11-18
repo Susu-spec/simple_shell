@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * exec_builtin - executes the built-in function
+ * builtin_execute - executes the built-in function
  * @tokens: arguments passed for execution
  * Return: tokens
  */

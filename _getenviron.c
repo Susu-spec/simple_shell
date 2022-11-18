@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * _getenv - gets an environment variable
  * @name: environment variable to get
@@ -13,10 +12,8 @@ char *_getenv(const char *name)
 	int compare;
 	unsigned int path_length, environ_length, length, i;
 
-
 	length = _strlen((char *)name);
-	i = 0;
-	environ_length = 0;
+	i = environ_length = 0;
 	while (environ[environ_length] != NULL)
 	{
 		environ_length++;
@@ -86,8 +83,5 @@ char **copy_env(char **environ_copy, unsigned int environ_length)
 		_strcpy(environ_copy[i], environ[i]);
 		i++;
 	}
-
 	return (environ_copy);
 }
-
-
