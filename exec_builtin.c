@@ -21,9 +21,8 @@ int builtin_execute(char **tokens)
 
 	if (tokens[0] == NULL)
 		return (1);
-	length = _strlen(tokens[0]);
-
 	num = shell_num_builtins(builtin);
+	length =_strlen(tokens[0]);
 	for (i = 0; i < num; i++)
 	{
 		if (_strcmp(tokens[0], builtin[i].name, length) == 0)

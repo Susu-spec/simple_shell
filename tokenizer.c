@@ -12,6 +12,11 @@ char **tokenizer(char *str)
 	char *token;
 	unsigned int i;
 
+	if (str == NULL)
+	{
+		free(str);
+		return (NULL);
+	}
 	tokens = malloc(sizeof(char) * BUFFER);
 	if (tokens == NULL)
 	{
@@ -21,15 +26,11 @@ char **tokenizer(char *str)
 
 	token = strtok(str, "\n\t\r ");
 
-	i = 0;
-	while (token != NULL)
+	for (i = 0; token != NULL; i++)
 	{
 		tokens[i] = token;
 		token = strtok(NULL, "\n\t\r ");
-		i++;
 	}
-
-	tokens[i] = NULL;
 
 	return (tokens);
 }
